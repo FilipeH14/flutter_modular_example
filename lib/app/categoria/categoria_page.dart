@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-class CategoriaPage extends StatelessWidget {
-  const CategoriaPage({Key? key}) : super(key: key);
+class CategoriaPage extends StatefulWidget {
+  final String? categoria;
 
+  const CategoriaPage({Key? key, this.categoria})
+      // : categoria = Modular.args?.data,
+      : super(key: key);
+
+  @override
+  State<CategoriaPage> createState() => _CategoriaPageState();
+}
+
+class _CategoriaPageState extends State<CategoriaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('categoria page')),
-      body: Container(),
+      body: Center(
+        child: Text(widget.categoria ?? 'Não foi enviado a categoria'),
+      ),
     );
   }
 }
